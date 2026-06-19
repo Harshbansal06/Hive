@@ -1,32 +1,31 @@
 import React from 'react';
-//import './SearchBar.css'; If you are using a separate CSS file for Figma metrics
 
-function SearchBar(){
+function SearchBar() {
   return (
-    <div className="searchbar-container">
-    
-      <input 
-        type="text" 
-        className="searchbar-input" 
-        placeholder="Search inventory, components, tools..." 
-      />
-      
-      <button type="button" className="searchbar-button">
+    <div className="absolute top-6 left-[280px] z-50">
+      <div className="flex items-center bg-[#16120e] border border-[#5c462b] rounded-md px-3 py-1.5 w-[70vw] max-w-[750px]">
+        
         <svg 
+          className="text-[#a69580] mr-2.5 shrink-0"
           xmlns="http://www.w3.org/2000/svg" 
-          width="16" 
-          height="16" 
+          width="14" 
+          height="14" 
           viewBox="0 0 24 24" 
           fill="none" 
           stroke="currentColor" 
-          strokeWidth="2"
+          strokeWidth="2.5"
         >
           <circle cx="11" cy="11" r="8"></circle>
           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
-      </button>
+        <input 
+          type="text" 
+          className="bg-transparent border-none outline-none text-white text-xs w-full placeholder-[#a69580]/80" 
+          placeholder="Search items, tools, components..." 
+        />
+      </div>
     </div>
   );
-};
+}
 
 export default SearchBar;
