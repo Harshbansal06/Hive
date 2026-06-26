@@ -1,26 +1,14 @@
 import React from 'react';
-
+import { Search } from 'lucide-react';
 function SearchBar() {
   return (
-    <div className="absolute top-6 left-[280px] z-50">
-      <div className="flex items-center bg-[#16120e] border border-[#5c462b] rounded-md px-3 py-1.5 w-[70vw] max-w-[750px]">
+    <div className="py-3 pl-5 relative border border-b-fg w-full">
+      <div className="flex items-center bg-[#30270D] border border-fg rounded-md px-3 py-1.5 w-100 font-mono gap-2 text-">
         
-        <svg 
-          className="text-[#a69580] mr-2.5 shrink-0"
-          xmlns="http://www.w3.org/2000/svg" 
-          width="14" 
-          height="14" 
-          viewBox="0 0 24 24" 
-          fill="none" 
-          stroke="currentColor" 
-          strokeWidth="2.5"
-        >
-          <circle cx="11" cy="11" r="8"></circle>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-        </svg>
+        <Search size={16} className='text-fg' />
         <input 
           type="text" 
-          className="bg-transparent border-none outline-none text-white text-xs w-full placeholder-[#a69580]/80" 
+          className="bg-transparent border-none outline-none text-fg text-xs w-full placeholder-fg " 
           placeholder="Search items, tools, components..." 
         />
       </div>
