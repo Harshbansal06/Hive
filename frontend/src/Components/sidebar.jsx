@@ -5,7 +5,7 @@ function SideBar() {
   return (
     <>
 
-      <div className="h-dvh bg-[#0A0A0F] w-64 flex flex-col font-sans">
+      <div className="h-dvh bg-surface w-64 flex flex-col font-sans">
 
         <div className="h-25 pl-4 pr-4 flex items-center">
           <div className="flex">
@@ -26,7 +26,7 @@ function SideBar() {
             </div>
           </div>
         </div>
-        <div className="text-[#FFFFFF] text-[16px] pl-4 pr-4 pt-4 border-t border-gray-800 font-mono flex-1 space-y-2">
+        <div className="text-heading text-[16px] pl-4 pr-4 pt-4 border-t border-gray-800 font-mono flex-1 space-y-2">
           
           <a href="#Dashboard" className="flex items-center h-10 px-3 rounded-lg outline-none focus:border focus:border-[#FFCC00] focus:text-[#FFCC00] hover:bg-gray-800/50 transition-colors">
             <div>Dashboard</div>
