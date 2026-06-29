@@ -4,6 +4,7 @@ import SearchBar from './Components/searchBar';
 import NotificationComponent from './Components/notificationComponent';
 import LoginPage from './Components/loginPage';
 import ToolsPage from './Components/ToolsPage';
+import ComponentPage from './Components/ComponentsPage';
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
       //   </div>
       // </div> */}
       
-    <ToolsPage></ToolsPage>
+    // <ToolsPage></ToolsPage>
+    <ComponentPage></ComponentPage>
 
   );
 }
