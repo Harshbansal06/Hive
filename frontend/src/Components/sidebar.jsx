@@ -1,70 +1,87 @@
-import React from "react";
-import {
-  LayoutDashboard,
-  Box,
-  Wrench,
-  Clock,
-  BarChart3,
-  Bell,
-  LogOut,
-} from "lucide-react";
+import Logo from "../assets/Site Assets/Logo.png"
+import DefaultPFP from "../assets/Site Assets/DefaultUserPhoto.png"
+import { ChevronRight, ChevronLeft, LayoutDashboard, Bell, ChartColumn, History, Wrench, Package, LogOut } from "lucide-react"
+import { useState } from "react"
 
-const navItems = [
-  { key: "dashboard", label: "Dashboard", icon: LayoutDashboard },
-  { key: "components", label: "Components", icon: Box },
-  { key: "tools", label: "Tools", icon: Wrench },
-  { key: "history", label: "History", icon: Clock },
-  { key: "reports", label: "Reports", icon: BarChart3 },
-  { key: "notifications", label: "Notifications", icon: Bell },
-];
+function SideBar() {
 
-const ErsLogo = ({ size = 42 }) => (
-  <div className="shrink-0 rounded-md bg-yellow-400 flex items-center justify-center" style={{ width: size, height: size }}>
-    <span className="font-black text-black tracking-tight" style={{ fontSize: size * 0.45, lineHeight: 1 }}>EH</span>
-  </div>
-);
-
-const Sidebar = ({ active = "notifications" }) => {
+  const [isCollapsed, setisCollapsed] = useState(true)
   return (
-    <aside className="w-64 h-full bg-[#0b0a0d] border-r border-[#3f3f46]/20 flex flex-col justify-between p-4 shrink-0 select-none">
-      <div className="flex flex-col space-y-6">
-        <div className="flex items-center space-x-3 px-2 py-1">
-          <ErsLogo />
-          <div>
-            <h1 className="text-white font-bold text-sm leading-tight">ERS Hive</h1>
-            <p className="text-[10px] text-gray-500 font-semibold tracking-wider uppercase">Inventory</p>
+    <>
+
+      <div className={`h-dvh bg-surface ${isCollapsed ? "w-20" : "w-64"}  flex flex-col font-sans border border-r-gray-800 transition-all`} >
+
+        <div className={`h-25 px-4 flex items-center ${isCollapsed ? "justify-center":"justify-between" } `}>
+          {!isCollapsed &&
+            <div className="flex ">
+
+
+              <div className="h-10 w-10"><img src={Logo} alt="Logo" className="object-contain rounded-lg" /></div>
+              <div className="flex flex-col pl-2">
+                <div className="text-heading text-[24px] font-bold leading-none">ERS Hive</div>
+                <div className="text-gray-400 text-[12px] uppercase tracking-widest font-semibold mt-1">Inventory</div>
+              </div>
+            </div>
+          }
+          <button
+            onClick={() => setisCollapsed(!isCollapsed)}
+            className="p-1 transition-colors text-heading cursor-pointer"
+          >
+            {isCollapsed ? <ChevronRight size={20} /> : <ChevronLeft size={20} />}
+          </button>
+
+        </div>
+        {!isCollapsed &&
+          <div className="h-18 pl-4 pr-4 border-t border-gray-800 flex items-center">
+            <div className="flex">
+              <div className="h-10 w-10"><img src={DefaultPFP} alt="pfp" className="rounded-full object-cover" /></div>
+              <div className="flex flex-col pl-2">
+                <div className="text-heading text-[18px] font-medium leading-tight">John Doe</div>
+
+                <div className="text-gray-400 text-[12px] font-mono mt-0.5">25BEC004</div>
+              </div>
+            </div>
           </div>
+        }
+        <div className={`text-heading text-[16px] pl-4 pr-4 pt-4 border-t border-gray-800 font-mono flex flex-col space-y-2 `}>
+
+          <a href="#Dashboard" className="gap-2 flex items-center h-10 px-3 rounded-lg outline-none focus:border focus:border-border focus:text-gold hover:bg-gray-800/50 transition-colors">
+            <LayoutDashboard size={16} />
+            {!isCollapsed && <div> Dashboard</div>}
+          </a>
+          <a href="#components" className="gap-2 flex items-center h-10 px-3 rounded-lg outline-none focus:border focus:border-border focus:text-gold hover:bg-gray-800/50 transition-colors">
+            <Package size={16} />
+            {!isCollapsed && <div> Components</div>}
+          </a>
+          <a href="#tools" className="gap-2 flex items-center h-10 px-3 rounded-lg outline-none focus:border focus:border-border focus:text-gold hover:bg-gray-800/50 transition-colors">
+            <Wrench size={16} />
+            {!isCollapsed && <div> Tools</div>}
+          </a>
+          <a href="#History" className="gap-2 flex items-center h-10 px-3 rounded-lg outline-none focus:border focus:border-border focus:text-gold hover:bg-gray-800/50 transition-colors">
+            <History size={16} />
+            {!isCollapsed && <div> History</div>}
+          </a>
+          <a href="#reports" className="gap-2 flex items-center h-10 px-3 rounded-lg outline-none focus:border focus:border-border focus:text-gold hover:bg-gray-800/50 transition-colors">
+            <ChartColumn size={16} />
+            {!isCollapsed && <div> Reports</div>}
+          </a>
+          <a href="#notifications" className="gap-2 flex items-center h-10 px-3 rounded-lg outline-none focus:border focus:border-border focus:text-gold hover:bg-gray-800/50 transition-colors">
+            <Bell size={16} />
+            {!isCollapsed && <div> Notifications</div>}
+          </a>
+
         </div>
 
-        <nav className="flex flex-col space-y-1">
-          {navItems.map((item) => {
-            const Icon = item.icon;
-            const isActive = active === item.key;
-            return (
-              <button
-                key={item.key}
-                className={`w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg text-xs font-semibold transition-all duration-200 ${
-                  isActive
-                    ? "bg-[#facc15] text-black shadow-md shadow-[#facc15]/10"
+        <div className={`px-4 h-18 flex items-center  text-heading border-t border-gray-800 mt-auto hover:text-red-600 transition-colors cursor-pointer ${isCollapsed && "justify-center"}`} >
+          <LogOut size={18} />
+          {
+            !isCollapsed &&
+            <div className="text-[16px] font-medium px-3">Log Out</div>
+          }
+        </div>
 
-                    : "text-gray-400 hover:bg-[#facc15]/10 hover:text-[#facc15]"
-                }`}
-              >
-                <Icon size={16} />
-                <span>{item.label}</span>
-              </button>
-            );
-          })}
-        </nav>
-      </div>
-
-      <div className="px-2 py-2 border-t border-zinc-900">
-        <button className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs font-semibold text-gray-400 hover:bg-red-500/10 hover:text-red-400 transition-all duration-200">
-          <LogOut size={16} />
-          <span>Logout</span>
-        </button>
-      </div>
-    </aside>
+       </div>  
+       </>
   );
 };
-export default Sidebar;
+export default SideBar;
