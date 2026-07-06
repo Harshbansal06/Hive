@@ -29,7 +29,7 @@ const piedata = [
 ];
 const ReportPage = () => {
   return (
-    <div className="p-5 relative max-w-7xl mx-auto w-full">
+    <div className="p-5 relative max-w-screen mx-auto w-full bg-bg">
       <div className="text-heading mb-6">
         <h1 className="text-2xl font-medium">Reports</h1>
         <p className="text-fg text-sm font-mono">Your performance analytics</p>

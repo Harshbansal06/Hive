@@ -17,7 +17,7 @@ function NotificationPage() {
   };
 
   return (
-    <div className="w-full text-white mt-2 select-none">
+    <div className="w-full text-white pt-2 select-none bg-bg min-h-screen">
       <div className="flex justify-between items-center mb-6">
         <div>
           <h2 className="text-xl font-bold tracking-tight">Notifications</h2>
@@ -33,7 +33,7 @@ function NotificationPage() {
         </button>
       </div>
 
-      <div className="flex flex-col space-y-3 w-full">
+      <div className="flex flex-col space-y-3 w-full ">
         {notifications.map((item) => (
           <NotificationComponent
             key={item.id}
